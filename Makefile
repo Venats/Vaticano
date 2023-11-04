@@ -9,9 +9,6 @@ BIN = bin
 
 VPATH := $(SRC_DIRS)
 
-$(OBJ_DIR)/%.o: %.c
-	$(CC) -o $@ -c $< $(CFLAGS)
-
 EXE:=$(BIN_DIR)/main
 
 CPPFLAGS= --std=gnu++17 \
@@ -37,6 +34,9 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
 	$(CPP) $(CPPFLAGS) $(PPFLAGS) -c $< -o $@
 
 $(OBJ_DIR)/%.o: src/Board/%.cpp
+	$(CPP)  -o $@ -c $< $(CPPFLAGS)
+
+$(OBJ_DIR)/%.o: src/Pieces/%.cpp
 	$(CPP)  -o $@ -c $< $(CPPFLAGS)
 
 $(OBJ_DIR)/%.o: src/%.cpp
