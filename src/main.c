@@ -2,6 +2,6 @@
 
 int main(int argc, char* argv[])
 {
-    Board b;
+    board b = {0};
     return 0;
 }

@@ -1,7 +1,7 @@
-CPP=c++
+CPP=cc
 
 OBJ_DIR = obj
-SRC := $(wildcard src/*/*.cpp) $(wildcard src/*.cpp) $(wildcard src/*/*/*.cpp) $(wildcard src/*/*/*/*.cpp)
+SRC := $(wildcard src/*/*.c) $(wildcard src/*.c) $(wildcard src/*/*/*.c) $(wildcard src/*/*/*/*.c)
 OBJ := $(addprefix $(OBJ_DIR)/,$(addsuffix .o,$(notdir $(basename $(SRC)))))
 
 SRC_DIRS := $(sort $(dir $(SRC)))
@@ -11,7 +11,7 @@ VPATH := $(SRC_DIRS)
 
 EXE:=$(BIN_DIR)/main
 
-CPPFLAGS= --std=gnu++17 \
+CPPFLAGS= --std=gnu17 \
 -Wall \
 -Werror \
 -Wpedantic \
@@ -30,16 +30,16 @@ dirs:
 $(EXE): $(OBJ) 
 	$(CPP) -o $(BIN)/main $^ $(LDFLAGS)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	$(CPP) $(CPPFLAGS) $(PPFLAGS) -c $< -o $@
 
-$(OBJ_DIR)/%.o: src/Board/%.cpp
+$(OBJ_DIR)/%.o: src/Board/%.c
 	$(CPP)  -o $@ -c $< $(CPPFLAGS)
 
-$(OBJ_DIR)/%.o: src/Pieces/%.cpp
+$(OBJ_DIR)/%.o: src/Pieces/%.c
 	$(CPP)  -o $@ -c $< $(CPPFLAGS)
 
-$(OBJ_DIR)/%.o: src/%.cpp
+$(OBJ_DIR)/%.o: src/%.c
 	$(CPP)  -o $@ -c $< $(CPPFLAGS)
 
 clean:

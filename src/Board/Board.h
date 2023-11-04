@@ -1,14 +1,8 @@
 #pragma once
 
-#include "Pieces/Piece.h"
-#include <vector>
+#include <stdint.h>
 
-class Board
+typedef struct
 {
-public:
-    Board();
-
-private:
-    std::vector<Piece> black_pieces;
-    std::vector<Piece> white_pieces;
-};
+    int32_t sqrs[8];
+}board;
