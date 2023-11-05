@@ -1,5 +1,7 @@
 #pragma once
 
+#include <stdbool.h>
+
 typedef enum
 {
     EMPTY = 0,
@@ -16,3 +18,14 @@ typedef enum
     BLACK_QUEEN = 0xD,
     BLACK_KING = 0xE,
 }piece;
+
+typedef struct 
+{
+    int x;
+    int y;
+}position;
+//TODO:
+bool is_white(piece p);
+bool is_black(piece p);
+
+// void get_moves(position* moves_buf, piece p, position pos);

@@ -1,8 +1,12 @@
 #pragma once
 
 #include <stdint.h>
+#include <Pieces/Piece.h>
 
 typedef struct
 {
-    int32_t sqrs[8];
+    uint32_t sqrs[8];
 }board;
+
+void board_init(board* b);
+piece get_piece(position pos);

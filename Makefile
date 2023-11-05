@@ -11,6 +11,9 @@ VPATH := $(SRC_DIRS)
 
 EXE:=$(BIN_DIR)/main
 
+INCLUDES:= \
+	src/
+
 CPPFLAGS= --std=gnu17 \
 -Wall \
 -Werror \
@@ -33,14 +36,14 @@ $(EXE): $(OBJ)
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	$(CPP) $(CPPFLAGS) $(PPFLAGS) -c $< -o $@
 
-$(OBJ_DIR)/%.o: src/Board/%.c
-	$(CPP)  -o $@ -c $< $(CPPFLAGS)
+$(OBJ_DIR)/%.o: src/Board/%.c 
+	$(CPP)  -o $@ -c $< -I $(INCLUDES) $(CPPFLAGS)
 
 $(OBJ_DIR)/%.o: src/Pieces/%.c
-	$(CPP)  -o $@ -c $< $(CPPFLAGS)
+	$(CPP)  -o $@ -c $< -I $(INCLUDES) $(CPPFLAGS)
 
 $(OBJ_DIR)/%.o: src/%.c
-	$(CPP)  -o $@ -c $< $(CPPFLAGS)
+	$(CPP)  -o $@ -c $< -I $(INCLUDES) $(CPPFLAGS)
 
 clean:
 	@$(RM) -rfv \
