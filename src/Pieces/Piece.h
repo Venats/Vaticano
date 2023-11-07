@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#define MASK_PIECE(pos) (0x0000000F << pos)
+#define PIECE_MASK(pos) (0x0000000F << pos)
 
 typedef enum
 {
