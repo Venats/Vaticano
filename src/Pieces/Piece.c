@@ -14,7 +14,7 @@ check_square (const uint32_t *board_rows, uint32_t row_idx, uint32_t bitshift)
     {
       return false;
     }
-  uint32_t masked_shift = MASK_PIECE (bitshift);
+  uint32_t masked_shift = PIECE_MASK (bitshift);
   if ((board_rows[row_idx] & masked_shift) == 0)
     {
       return true;
