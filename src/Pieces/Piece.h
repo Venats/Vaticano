@@ -29,7 +29,7 @@ typedef struct
   uint32_t arr_idx;
 } position;
 
-bool check_square (uint32_t *board_columns, uint32_t column_idx,
+bool check_square (const uint32_t *board_columns, uint32_t column_idx,
                    uint32_t new_bitshift);
 // TODO:
 bool is_white (piece p);
